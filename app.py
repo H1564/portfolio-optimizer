@@ -29,7 +29,23 @@ if __name__ == "__main__":
         marker="*",
         s=200,
         label="Optimal Portfolio"
-    )
+        from optimizer import simulate_portfolios, optimize_portfolio
+from utils import download_data, plot_efficient_frontier
+
+# Set your tickers
+tickers = ['AAPL', 'MSFT', 'GOOGL', 'AMZN']
+
+# Download stock data
+data = download_data(tickers)
+
+# Run simulations
+returns, volatilities, sharpe_ratios, weights_record = simulate_portfolios(data, num_portfolios=5000)
+
+# Optimize
+opt_weights, opt_ret, opt_vol = optimize_portfolio(data)
+
+# Plot
+plot_efficient_frontier(returns, volatilities, sharpe_ratios, opt_ret, opt_vol)    
     plt.legend()
     plt.grid(True)
     plt.show()
