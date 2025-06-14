@@ -33,3 +33,6 @@ Uses the SLSQP algorithm to find weights with maximum Sharpe ratio.
 ---
 
 ## 🧩 Requirements
+## 📋 Optimized Weights Table
+
+The calculated optimal weights for each stock are saved in [`optimized_weights.csv`](optimized_weights.csv).
